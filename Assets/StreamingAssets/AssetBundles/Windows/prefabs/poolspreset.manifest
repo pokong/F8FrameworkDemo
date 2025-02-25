@@ -1,12 +1,15 @@
 ManifestFileVersion: 0
-CRC: 2813880966
+CRC: 3959381802
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 13b73cca1148a5f3b793313797ac4e96
+    Hash: 90cf6c81d8d5e853109ef4e5b3f24a86
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 7a9bb4c197006336514bd847e43336bb
+    Hash: 5390e2e57717d546feafd49becceab26
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 90cf6c81d8d5e853109ef4e5b3f24a86
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -21,5 +24,5 @@ SerializeReferenceClassIdentifiers:
 Assets:
 - Assets/AssetBundles/Prefabs/PoolsPreset.asset
 Dependencies:
-- G:/Work/unity2021315f1pj/F8FrameworkDemo/Assets/StreamingAssets/AssetBundles/Windows/prefabs/tree_1
-- G:/Work/unity2021315f1pj/F8FrameworkDemo/Assets/StreamingAssets/AssetBundles/Windows/prefabs/tree_2
+- C:/Users/admin/Desktop/F8/F8FrameworkDemo-main/Assets/StreamingAssets/AssetBundles/Windows/prefabs/tree_1
+- C:/Users/admin/Desktop/F8/F8FrameworkDemo-main/Assets/StreamingAssets/AssetBundles/Windows/prefabs/tree_2

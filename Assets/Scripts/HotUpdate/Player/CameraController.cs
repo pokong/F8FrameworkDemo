@@ -1,4 +1,6 @@
 
+using F8Framework.Core;
+using F8Framework.Launcher;
 using UnityEngine;
 
 namespace Demo
@@ -18,10 +20,14 @@ namespace Demo
         // Use this for initialization
         void Start ()
         {
+            Debug.Log("这是C#更新成功了1");
             _camera = GetComponent<Camera>();
             transform.position = new Vector3(player.position.x, player.position.y ,transform.position.z);
             offset = transform.position - player.position;
+            Debug.Log("这是C#更新成功了4");
         }
+        
+
         
         // Update is called once per frame
         void LateUpdate() {

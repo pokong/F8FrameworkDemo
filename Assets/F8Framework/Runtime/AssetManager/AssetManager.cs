@@ -1651,6 +1651,7 @@ namespace F8Framework.Core
             {
                 _assetBundleManager = ModuleCenter.CreateModule<AssetBundleManager>();
                 _resourcesManager = ModuleCenter.CreateModule<ResourcesManager>();
+                var path = Application.persistentDataPath + "/" + nameof(AssetBundleMap) + ".json";
                 if (File.Exists(Application.persistentDataPath + "/" + nameof(AssetBundleMap) + ".json"))
                 {
                     string json =

@@ -1,12 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1196143784
+CRC: 51628875
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5c4b0a4433110355f002d5d8218210ab
+    Hash: a5429df803f8226ec991b990edb01d5e
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4b8fe1a60cc05eed8f66137d15524f96
+    Hash: f596dc3e88225c4fdbede3db91308caf
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: a5429df803f8226ec991b990edb01d5e
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,4 +28,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetBundles/Prefabs/Role_Prefabs/Chara_01.prefab
 Dependencies:
-- G:/Work/unity2021315f1pj/F8FrameworkDemo/Assets/StreamingAssets/AssetBundles/Windows/textures/packforest01
+- C:/Users/admin/Desktop/F8/F8FrameworkDemo-main/Assets/StreamingAssets/AssetBundles/Windows/textures/packforest01

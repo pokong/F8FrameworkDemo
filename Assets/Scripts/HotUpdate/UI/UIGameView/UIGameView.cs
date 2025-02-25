@@ -116,12 +116,13 @@ public class UIGameView : BaseView
     // 开始下载
     void OnDownloadStart(DownloadStartEventArgs eventArgs)
     {
-        LogF8.Log(eventArgs.DownloadInfo.DownloadUrl);
+        LogF8.Log("OnDownloadStart:"+eventArgs.DownloadInfo.DownloadUrl);
     }
         
     void OnDownloadOverall(DonwloadUpdateEventArgs eventArgs)
     {
-        LogF8.Log(eventArgs.DownloadInfo.DownloadProgress);
+        // LogF8.Log("OnDownloadOverall:"+eventArgs.DownloadInfo.DownloadProgress);
+        
         // 测试断点续传，暂停下载
         // if (eventArgs.DownloadInfo.DownloadProgress > 0.4f)
         // {
@@ -169,6 +170,8 @@ public class UIGameView : BaseView
         {
             rimg_logo_rimg.texture = ((DownloadHandlerTexture)request.downloadHandler).texture;
         }
+        
+        ChangImage();
     }
     
     protected override void OnViewTweenInit()
@@ -179,13 +182,32 @@ public class UIGameView : BaseView
     // 自定义打开界面动画
     protected override void OnPlayViewTween()
     {
-        //transform.ScaleTween(Vector3.one, 0.1f).SetEase(Ease.Linear).SetOnComplete(OnViewOpen);
+        transform.ScaleTween(Vector3.one, 0.1f).SetEase(Ease.Linear).SetOnComplete(OnViewOpen);
     }
     
     // 打开界面动画完成后
     protected override void OnViewOpen()
     {
         
+        Debug.Log("这是更新了？？？？");
+        
+        // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+        // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+        // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+        // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+        // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+        
+        
+        
+    }
+    
+    public async void ChangImage()
+    {
+        // BaseLoader _load = FF8.Asset.LoadAsync<Texture2D>("sampleimage_title_text_1");
+        // BaseLoader _load = FF8.Asset.LoadAsync<Texture2D>("label_ribbon_01_Demo");
+        BaseLoader _load = FF8.Asset.LoadAsync<Texture2D>("character_sample_00_m");
+        await _load;
+        rimg_logo_rimg.texture = _load.GetAssetObject<Texture2D>();
     }
     
     // 删除之前

@@ -66,6 +66,22 @@ namespace Demo
       public Transform playerRole;
 
       private IFSM<PlayerMove> playerFSM;
+      
+      
+      public async void ChangImage()
+      {
+         Debug.Log("这是C#更新成功了2");
+         BaseLoader _load2 = FF8.Asset.LoadAsync<GameObject>("newgo");
+         await _load2;
+         GameObject childNode = Instantiate(_load2.GetAssetObject<GameObject>(), gameObject.transform, false);
+         childNode.name = "newgo";
+         childNode.transform.parent = playerRole;
+         childNode.transform.localPosition = Vector3.zero;
+         childNode.transform.localRotation = Quaternion.identity;
+         childNode.transform.localScale = Vector3.one;
+         Debug.Log("这是C#更新成功了3");
+      }
+      
       private void Start()
       {
          string name = FF8.Config.GetroleByID(GameDataModule.Instance.RoleId).name;
@@ -84,11 +100,13 @@ namespace Demo
          playerFSM.DefaultState = moveState;
          playerFSM.ChangeToDefaultState();
 
-         FF8.UI.Open(DemoLauncher.DemoLauncher.UIID.UIAward);
-         FF8.UI.Open(DemoLauncher.DemoLauncher.UIID.UIAward);
-         FF8.UI.Open(DemoLauncher.DemoLauncher.UIID.UIAward);
-         FF8.UI.Open(DemoLauncher.DemoLauncher.UIID.UIAward);
-         FF8.UI.Open(DemoLauncher.DemoLauncher.UIID.UIAward);
+         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+         FF8.UI.Open(DemoLauncher.UIID.UIAward);
+         
+         ChangImage();
       }
 
       private void Update()

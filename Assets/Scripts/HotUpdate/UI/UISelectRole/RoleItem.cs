@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using F8Framework.Core;
 using F8Framework.Launcher;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class RoleItem : BaseItem
@@ -34,8 +35,12 @@ public class RoleItem : BaseItem
             FF8.Audio.PlayUISound("Electronic high shot");
             FF8.UI.Close(1, true);
             GameDataModule.Instance.RoleId = _index;
-            SceneManager.LoadScene("Main");
-            FF8.UI.Open(DemoLauncher.DemoLauncher.UIID.UIGameView);
+            
+            // SceneManager.LoadScene("MainScenes");
+            AssetManager.Instance.Load("MainScenes");
+            SceneManager.LoadSceneAsync("MainScenes", LoadSceneMode.Single);
+            
+            FF8.UI.Open(DemoLauncher.UIID.UIGameView);
         });
     }
     
