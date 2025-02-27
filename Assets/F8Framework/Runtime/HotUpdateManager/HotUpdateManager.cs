@@ -53,7 +53,7 @@ namespace F8Framework.Core
             }
             
             string path = GameConfig.LocalGameVersion.AssetRemoteAddress + "/" + nameof(GameVersion) + ".json";
-            LogF8.LogError($"初始化远程版本：{path}");
+            LogF8.Log($"初始化远程版本：{path}");
             
             
             UnityWebRequest webRequest = UnityWebRequest.Get(path);
@@ -85,7 +85,7 @@ namespace F8Framework.Core
             }
 
             string path = GameConfig.LocalGameVersion.AssetRemoteAddress + "/HotUpdate" + Separator + nameof(AssetBundleMap) + ".json";
-            LogF8.LogError($"始化资源版本：{path}");
+            LogF8.Log($"始化资源版本：{path}");
             UnityWebRequest webRequest = UnityWebRequest.Get(path);
             yield return webRequest.SendWebRequest();
 #if UNITY_2020_2_OR_NEWER
