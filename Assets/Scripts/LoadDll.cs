@@ -76,21 +76,17 @@ public class LoadDll : MonoBehaviour
             
             TextAsset asset1 = AssetManager.Instance.Load<TextAsset>("F8Framework.F8ExcelDataClass");
             Assembly hotUpdateAss1 = Assembly.Load(asset1.bytes);
-            TextAsset asset2 = AssetManager.Instance.Load<TextAsset>("F8Framework.Launcher");
-            Assembly hotUpdateAss2 = Assembly.Load(asset2.bytes);
-            TextAsset asset3 = AssetManager.Instance.Load<TextAsset>("HotUpdate");
-            Assembly hotUpdateAss3 = Assembly.Load(asset3.bytes);
+            TextAsset asset2 = AssetManager.Instance.Load<TextAsset>("HotUpdate");
+            Assembly hotUpdateAss3 = Assembly.Load(asset2.bytes);
 #else
             // Editor下无需加载，直接查找获得HotUpdate程序集
-            Assembly hotUpdateAss = System.AppDomain.CurrentDomain.GetAssemblies()
+            Assembly hotUpdateAss1 = System.AppDomain.CurrentDomain.GetAssemblies()
                 .First(a => a.GetName().Name == "F8Framework.F8ExcelDataClass");
             Assembly hotUpdateAss2 = System.AppDomain.CurrentDomain.GetAssemblies()
-                .First(a => a.GetName().Name == "F8Framework.Launcher");
-            Assembly hotUpdateAss3 = System.AppDomain.CurrentDomain.GetAssemblies()
                 .First(a => a.GetName().Name == "HotUpdate");
 #endif
-            Type type1 = hotUpdateAss2.GetType("F8Framework.Launcher.GameLauncher");
-            Type type = hotUpdateAss2.GetType("F8Framework.Launcher.DemoLauncher");
+            Type type = hotUpdateAss2.GetType("HotUpdate.Launcher.GameLauncher");
+            // Type type = hotUpdateAss2.GetType("F8Framework.Launcher.DemoLauncher");
             
             // 添加组件
             gameObject.AddComponent(type);
