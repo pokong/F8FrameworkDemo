@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 4047852941
+CRC: 4232727332
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -145,32 +145,29 @@ AssetBundleManifest:
       Name: code/f8framework.f8exceldataclass
       Dependencies: {}
     Info_40:
-      Name: code/f8framework.launcher
-      Dependencies: {}
-    Info_41:
       Name: code/hotupdate
       Dependencies: {}
-    Info_42:
+    Info_41:
       Name: code/mscorlib.dll
       Dependencies: {}
-    Info_43:
+    Info_42:
       Name: code/system.core.dll
       Dependencies: {}
-    Info_44:
+    Info_43:
       Name: code/system.dll
       Dependencies: {}
-    Info_45:
+    Info_44:
       Name: config/binconfigdata/item
       Dependencies: {}
-    Info_46:
+    Info_45:
       Name: config/binconfigdata/localizedstrings
       Dependencies: {}
-    Info_47:
+    Info_46:
       Name: config/binconfigdata/role
       Dependencies: {}
-    Info_48:
+    Info_47:
       Name: config/binconfigdata/sheet1
       Dependencies: {}
-    Info_49:
+    Info_48:
       Name: config/binconfigdata/sheet2
       Dependencies: {}

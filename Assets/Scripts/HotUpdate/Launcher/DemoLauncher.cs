@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 
-namespace F8Framework.Launcher
+namespace HotUpdate
 {
     public class DemoLauncher : MonoBehaviour
     {

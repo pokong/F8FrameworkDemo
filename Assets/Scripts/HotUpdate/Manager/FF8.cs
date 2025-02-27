@@ -1,7 +1,7 @@
 using F8Framework.Core;
 using F8Framework.F8ExcelDataClass;
 
-namespace F8Framework.Launcher
+namespace HotUpdate
 {
     public static class FF8
     {

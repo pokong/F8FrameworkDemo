@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using F8Framework.Core;
-using F8Framework.Launcher;
+using HotUpdate;
 using UnityEngine;
 
-namespace F8Framework.Tests
+namespace HotUpdate.Tests
 {
     public class DemoHotUpdateManager : MonoBehaviour
     {

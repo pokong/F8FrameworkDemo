@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using F8Framework.Core;
 using F8Framework.F8ExcelDataClass;
-using F8Framework.Launcher;
+using HotUpdate;
 
-namespace F8Framework.Tests
+namespace HotUpdate.Tests
 {
     public class DemoExcelTool : MonoBehaviour
     {

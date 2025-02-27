@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using F8Framework.Core;
-using F8Framework.Launcher;
+using HotUpdate;
 using UnityEngine;
 
 namespace F8Framework.Tests

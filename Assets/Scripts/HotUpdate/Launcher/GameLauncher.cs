@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 
-namespace F8Framework.Launcher
+namespace HotUpdate
 {
     public class GameLauncher : MonoBehaviour
     {
@@ -79,6 +79,7 @@ namespace F8Framework.Launcher
 
         public void StartNet()
         {
+            
             NetWorkSocket.Instance().Connect();
         }
 

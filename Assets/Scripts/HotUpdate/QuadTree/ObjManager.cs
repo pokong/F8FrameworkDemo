@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using F8Framework.Core;
-using F8Framework.Launcher;
+using HotUpdate;
 using UnityEngine;
 
 namespace Demo

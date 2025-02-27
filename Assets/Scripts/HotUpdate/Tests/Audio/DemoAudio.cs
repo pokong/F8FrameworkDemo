@@ -1,9 +1,9 @@
 using F8Framework.Core;
-using F8Framework.Launcher;
+using HotUpdate;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace F8Framework.Tests
+namespace HotUpdate.Tests
 {
     public class DemoAudio : MonoBehaviour
     {

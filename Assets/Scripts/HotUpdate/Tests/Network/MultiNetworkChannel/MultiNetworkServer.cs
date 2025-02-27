@@ -2,9 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using F8Framework.Core;
-using F8Framework.Launcher;
+using F8Framework.Tests;
+using HotUpdate;
 
-namespace F8Framework.Tests
+namespace HotUpdate.Tests
 {
     public class MultiNetworkServer : MonoBehaviour
     {

@@ -92,3 +92,4 @@ crashlytics-build.properties
 Assets/HybridCLRGenerate/
 HybridCLRData/
 LogsShow/
+out/

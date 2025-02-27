@@ -4,7 +4,7 @@ using F8Framework.Core;
 using UnityEngine;
 
 
-namespace F8Framework.Launcher
+namespace HotUpdate
 {
     public class UIConfigData
     {

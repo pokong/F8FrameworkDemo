@@ -1,10 +1,10 @@
 using System.Collections;
 using F8Framework.Core;
-using F8Framework.Launcher;
+
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace F8Framework.Tests
+namespace HotUpdate.Tests
 {
     public class DemoTween : MonoBehaviour
     {

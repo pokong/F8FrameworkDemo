@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using F8Framework.Core;
 using F8Framework.F8ExcelDataClass;
-using F8Framework.Launcher;
+using HotUpdate;
 using UnityEngine;
 
-namespace F8Framework.Tests
+namespace HotUpdate.Tests
 {
 	public class LanguageCycler : MonoBehaviour
 	{
