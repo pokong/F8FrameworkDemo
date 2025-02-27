@@ -6,8 +6,9 @@ namespace F8Framework.Core
     public class URLSetting
     {
             public const string AssetBundlesName = "AssetBundles";  // AB包名
-            public const string AssetBundlesPath = "Assets/AssetBundles/"; // 打包AB包根路径
-            public const string AssetBundlesPathLower = "assets/assetbundles/"; // 打包AB包根路径小写
+            public static string AssetBundlesPath = "Assets/AssetBundles/"; // 打包AB包根路径
+            // public static string AssetBundlesPath = "Assets/AssetBundles/" + GetPlatformName()+ "/"; // 打包AB包根路径
+            public static string AssetBundlesPathLower = "assets/assetbundles/" + GetPlatformName().ToLower()+ "/"; // 打包AB包根路径小写
             public const string ResourcesPath = "Resources/"; // Resources根路径
             
             public static string GetAssetBundlesFolder()

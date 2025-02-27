@@ -113,6 +113,7 @@ namespace F8Framework.Core.Editor
         [MenuItem("开发工具/打包AssetBundles目录资源-F8")]
         public static void BuildAssetBundles()
         {
+            GenerateCopyHotUpdateDll();
             F8EditorPrefs.SetBool("compilationFinishedBuildAB", false);
             ABBuildTool.BuildAllAB();
         }

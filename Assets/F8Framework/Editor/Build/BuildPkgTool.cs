@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace F8Framework.Core.Editor
 {
@@ -34,7 +35,7 @@ namespace F8Framework.Core.Editor
         private static bool _enableFullPackage = true;
         private static bool _enableOptionalPackage = false;
         private static bool _enableNullPackage = false;
-        private static string _optionalPackage = "0_1_2_3";
+        private static string _optionalPackage = "1_2_3_4";
         private static string _assetRemoteAddress = "http://127.0.0.1:6789" + HotUpdateManager.RemoteDirName;
         private static bool _enablePackage = false;
         
@@ -651,7 +652,8 @@ namespace F8Framework.Core.Editor
             
             //http://192.168.11.69/sgyyweb/Windows/Remote/
             
-            string assetRemoteAddress = F8EditorPrefs.GetString(_assetRemoteAddressKey, "") + URLSetting.GetPlatformName() + "/Remote/";
+            // string assetRemoteAddress = F8EditorPrefs.GetString(_assetRemoteAddressKey, "")  + "/Remote";
+            string assetRemoteAddress = F8EditorPrefs.GetString(_assetRemoteAddressKey, "")  + "Remote/" + URLSetting.GetPlatformName();
             
             bool enableHotUpdate = F8EditorPrefs.GetBool(_enableHotUpdateKey, false);
             

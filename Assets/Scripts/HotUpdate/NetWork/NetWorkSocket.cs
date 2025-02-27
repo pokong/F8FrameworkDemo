@@ -8,7 +8,8 @@ using UnityWebSocket;
 public class NetWorkSocket
 {
     // Start is called before the first frame update
-    private string wsUrl = "ws://localhost:10100/websocket"; //io game
+    // private string wsUrl = "ws://localhost:10100/websocket"; //io game?
+    private string wsUrl = "ws://192.168.11.69:10100/websocket"; //io game?
     private static NetWorkSocket _instance = null;
     public WebSocket socket;
 
