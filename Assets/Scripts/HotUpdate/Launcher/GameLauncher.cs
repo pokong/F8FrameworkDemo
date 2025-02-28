@@ -66,7 +66,8 @@ namespace HotUpdate
                 // 初始化
                 FF8.UI.Initialize(UIConfigData.ConfigsData);
 
-                FF8.UI.Open(UIConfigData.UIID.UISelectRole);
+                // FF8.UI.Open(UIConfigData.UIID.UISelectRole);
+                FF8.UI.Open(UIConfigData.UIID.UIVideoPlay, new object[] { 1 });
 
                 StartNet();
             });

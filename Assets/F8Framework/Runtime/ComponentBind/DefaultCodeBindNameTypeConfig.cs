@@ -31,7 +31,7 @@ namespace F8Framework.Core
             { "Scrollbar", nameof (UnityEngine.UI.Scrollbar) },
             { "ScrollRect", nameof (UnityEngine.UI.ScrollRect) },
             { "Dropdown", nameof (UnityEngine.UI.Dropdown) },
-            { "Text (TMP)", "TMPro.TMP_Text" },{ "tmp", "TMPro.TMP_Text" },
+            { "Text (TMP)", "TMPro.TMP_Text" },{ "TMP", "TMPro.TMP_Text" },{ "tmp", "TMPro.TMP_Text" },
         };
     }
 }

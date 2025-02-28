@@ -18,6 +18,8 @@ namespace HotUpdate
             UIGameView = 2, // 游戏界面
             UIAward = 3, // 奖励
             UITip = 4, // 提示
+            UIVideoPlay = 5, // 视频播放
+            UIVideoPlayEnd = 6, // 视频结束
         }
 
         public static Dictionary<UIID, UIConfig> ConfigsData = new Dictionary<UIID, UIConfig>
@@ -26,6 +28,8 @@ namespace HotUpdate
             { UIID.UIGameView, new UIConfig(LayerType.UI, "UIGameView") },
             { UIID.UIAward, new UIConfig(LayerType.Dialog, "UIAward") },
             { UIID.UITip, new UIConfig(LayerType.Notify, "UITip") },
+            { UIID.UIVideoPlay, new UIConfig(LayerType.Game, "UIVideoPlay") },
+            { UIID.UIVideoPlayEnd, new UIConfig(LayerType.UI, "UIVideoPlayEnd") },
         };
 
         public static UIConfigData Instance()
