@@ -173,29 +173,31 @@ public class UIVideoPlay : BaseView
 
     public async void ShowPlayeVideo(int videoindex)
     {
-        _VidoIdLast = _VidoId;
-        _VidoId = videoindex;
-        
         //解密后的临时视频路径
         var temppath = "/videotemp/";
         var tempname = "videotemp.mp4";
         var tempnamesrt = "videotempsub.srt";
         var tempUrl = Application.persistentDataPath + temppath;
         // tempUrl = Application.streamingAssetsPath + temppath;
-
+        
         //临时目录空的话就创建
         if (Directory.Exists(tempUrl))
         {
-            //删除临时目录下的所有文件
-            foreach (var filePath in Directory.GetFiles(tempUrl))
-                File.Delete(filePath);
+            if(_VidoId != videoindex)
+            {
+                //删除临时目录下的所有文件
+                foreach (var filePath in Directory.GetFiles(tempUrl))
+                    File.Delete(filePath);
+            }
         }
         else
         {
             //创建目录
             Directory.CreateDirectory(tempUrl);
         }
-
+        
+        _VidoIdLast = _VidoId;
+        _VidoId = videoindex;
 
         //SUB
         if (!File.Exists(tempUrl + tempnamesrt))
@@ -215,13 +217,11 @@ public class UIVideoPlay : BaseView
                 byte[] buffersrt_ed = TurnByte(loadsub.GetAssetObject<TextAsset>().bytes);
                 //将字节数组写入到临时目录下
                 File.WriteAllBytes(tempUrl + tempnamesrt, buffersrt_ed);
-                
-                var videosrtath = new MediaPath(tempUrl + tempnamesrt, MediaPathType.RelativeToDataFolder);
-                _MediaPlayer.SideloadSubtitles = true;
-                _MediaPlayer.EnableSubtitles(videosrtath);
-                
             }
         }
+        var videosrtath = new MediaPath(tempUrl + tempnamesrt, MediaPathType.RelativeToDataFolder);
+        _MediaPlayer.SideloadSubtitles = true;
+        _MediaPlayer.EnableSubtitles(videosrtath);
         
 
         //VIDEO
@@ -239,13 +239,12 @@ public class UIVideoPlay : BaseView
                 var bufferEd = TurnByte(loadvideo.GetAssetObject<TextAsset>().bytes);
                 //将字节数组写入到临时目录下
                 File.WriteAllBytes(tempUrl + tempname, bufferEd);
-                
-                //给VideoPlayer组件赋值并播放
-                var videoath = new MediaPath(tempUrl + tempname, MediaPathType.RelativeToDataFolder);
-                _MediaPlayer.OpenMedia(videoath, autoPlay: false);
-                _MediaPlayer.Play();
             }
         }
+        //给VideoPlayer组件赋值并播放
+        var videoath = new MediaPath(tempUrl + tempname, MediaPathType.RelativeToDataFolder);
+        _MediaPlayer.OpenMedia(videoath, autoPlay: false);
+        _MediaPlayer.Play();
     }
 
     public static byte[] TurnByte(byte[] input)
