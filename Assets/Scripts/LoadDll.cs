@@ -106,9 +106,9 @@ public class LoadDll : MonoBehaviour
     {
         List<string> aotDllList = new List<string>
         {
-            "mscorlib.dll",
-            "System.dll",
-            "System.Core.dll", // 如果使用了Linq，需要这个
+            "mscorlib.dllby",
+            "System.dllby",
+            "System.Core.dllby", // 如果使用了Linq，需要这个
             // "Newtonsoft.Json.dll", 
             // "protobuf-net.dll",
         };

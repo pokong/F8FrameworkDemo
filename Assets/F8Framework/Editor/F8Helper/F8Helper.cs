@@ -111,7 +111,7 @@ namespace F8Framework.Core.Editor
                 
                 FileTools.SafeCopyFile(
                     mscorlibsouPath,
-                    Application.dataPath + "/AssetBundles/Code/"+ aotDllName +".bytes");
+                    Application.dataPath + "/AssetBundles/Code/"+ aotDllName +"by.bytes");
                 LogF8.LogAsset("生成并复制源数据dll："+aotDllName);
             }
 

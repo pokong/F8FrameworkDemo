@@ -14,15 +14,17 @@ public class InitState : ProcedureNode
         Empty = 0,
         UISelectRole = 1, // 选择角色
         UIGameView = 2, // 游戏界面
-        UITip = 3, // 提示
-        UIVideoPlay = 4, // 视频播放
-        UIVideoPlayEnd = 5, // 视频结束
+        UIAward = 3, // 奖励
+        UITip = 4, // 提示
+        UIVideoPlay = 5, // 视频播放
+        UIVideoPlayEnd = 6, // 视频结束
     }
         
     private Dictionary<UIID, UIConfig> _configs = new Dictionary<UIID, UIConfig>
     {
         { UIID.UISelectRole, new UIConfig(LayerType.UI, "UISelectRole") },
         { UIID.UIGameView, new UIConfig(LayerType.UI, "UIGameView") },
+        { UIID.UIAward, new UIConfig(LayerType.Dialog, "UIAward") },
         { UIID.UITip, new UIConfig(LayerType.Notify, "UITip") },
         { UIID.UIVideoPlay, new UIConfig(LayerType.Game, "UIVideoPlay") },
         { UIID.UIVideoPlayEnd, new UIConfig(LayerType.UI, "UIVideoPlayEnd") },
@@ -36,6 +38,7 @@ public class InitState : ProcedureNode
     {
         FF8.Config.LoadAll();
 
+
 #if UNITY_EDITOR
         ReadExcel.Instance.LoadAllExcelData();
 #endif
@@ -44,6 +47,9 @@ public class InitState : ProcedureNode
         FF8.Audio.SetAudioMixer(FF8.Asset.Load<AudioMixer>("F8AudioMixer"));
             
         FF8.Audio.PlayMusic("02b Town Theme", null, true);
+        
+        // 初始化
+        FF8.UI.Initialize(_configs);
         
         FF8.Procedure.RunProcedureNode<GameState>();
         
