@@ -49,41 +49,9 @@ namespace HotUpdate
         // 开始游戏
         public void StartGame()
         {
-            FF8.Config.LoadAll();
-
-#if UNITY_EDITOR
-            ReadExcel.Instance.LoadAllExcelData();
-#endif
-
-            LogF8.Log(FF8.Config.GetroleByID(1).name);
-
-
-            FF8.Asset.Load("IsometricSpriteAtlas");
-
-            // 加载文件夹内资产
-            FF8.Asset.LoadDirAsync("Role_Textures", () =>
-            {
-                // 初始化
-                FF8.UI.Initialize(UIConfigData.ConfigsData);
-
-                // FF8.UI.Open(UIConfigData.UIID.UISelectRole);
-                FF8.UI.Open(UIConfigData.UIID.UIVideoPlay, new object[] { 1 });
-
-                StartNet();
-            });
-
-
-            FF8.Audio.SetAudioMixer(FF8.Asset.Load<AudioMixer>("F8AudioMixer"));
-
-            FF8.Audio.PlayMusic("02b Town Theme", null, true);
+            FF8.Procedure.RunProcedureNode<InitState>();
         }
-
-        public void StartNet()
-        {
-            
-            NetWorkSocket.Instance().Connect();
-        }
-
+        
         void Update()
         {
             // 更新模块

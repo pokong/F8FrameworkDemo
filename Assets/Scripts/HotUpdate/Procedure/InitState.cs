@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using F8Framework.Core;
+using HotUpdate;
+using UnityEngine;
+using UnityEngine.Audio;
+
+
+public class InitState : ProcedureNode
+{
+    public enum UIID
+    {
+        // UI枚举
+        Empty = 0,
+        UISelectRole = 1, // 选择角色
+        UIGameView = 2, // 游戏界面
+        UITip = 3, // 提示
+        UIVideoPlay = 4, // 视频播放
+        UIVideoPlayEnd = 5, // 视频结束
+    }
+        
+    private Dictionary<UIID, UIConfig> _configs = new Dictionary<UIID, UIConfig>
+    {
+        { UIID.UISelectRole, new UIConfig(LayerType.UI, "UISelectRole") },
+        { UIID.UIGameView, new UIConfig(LayerType.UI, "UIGameView") },
+        { UIID.UITip, new UIConfig(LayerType.Notify, "UITip") },
+        { UIID.UIVideoPlay, new UIConfig(LayerType.Game, "UIVideoPlay") },
+        { UIID.UIVideoPlayEnd, new UIConfig(LayerType.UI, "UIVideoPlayEnd") },
+    };
+    public override void OnInit(ProcedureProcessor processor)
+    {
+            
+    }
+        
+    public override void OnEnter(ProcedureProcessor processor)
+    {
+        FF8.Config.LoadAll();
+
+#if UNITY_EDITOR
+        ReadExcel.Instance.LoadAllExcelData();
+#endif
+        LogF8.Log(FF8.Config.GetroleByID(1).name);
+            
+        FF8.Audio.SetAudioMixer(FF8.Asset.Load<AudioMixer>("F8AudioMixer"));
+            
+        FF8.Audio.PlayMusic("02b Town Theme", null, true);
+        
+        FF8.Procedure.RunProcedureNode<GameState>();
+        
+        NetWorkSocket.Instance().Connect();
+    }
+    
+    public override void OnExit(ProcedureProcessor processor)
+    {
+            
+    }
+    
+    public override void OnUpdate(ProcedureProcessor processor)
+    {
+            
+    }
+        
+    public override void OnDestroy(ProcedureProcessor processor)
+    {
+            
+    }
+}

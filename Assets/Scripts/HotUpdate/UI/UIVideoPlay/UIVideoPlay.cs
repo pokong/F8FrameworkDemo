@@ -111,13 +111,13 @@ public class UIVideoPlay : BaseView
                     //     break;
                     default:
                         //打开END UI
-                        if (FF8.UI.Has(UIConfigData.UIID.UIVideoPlayEnd))
+                        if (FF8.UI.Has(InitState.UIID.UIVideoPlayEnd))
                         {
                             FF8.Message.DispatchEvent(HotMessageEvent.VideoPlayEnd);
                         }
                         else
                         {
-                            FF8.UI.Open(UIConfigData.UIID.UIVideoPlayEnd);
+                            FF8.UI.Open(InitState.UIID.UIVideoPlayEnd);
                         }
                         break;
                 }

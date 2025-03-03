@@ -6,7 +6,6 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 namespace F8Framework.Core.Editor
 {
@@ -651,7 +650,7 @@ namespace F8Framework.Core.Editor
             string toVersion = F8EditorPrefs.GetString(_toVersionKey, "");
             
             // string assetRemoteAddress = F8EditorPrefs.GetString(_assetRemoteAddressKey, "");
-            //http://192.168.11.69/sgyyweb/Remote//Windows //区分平台
+            //http://192.168.11.69/sgyyweb/Remote//Windows //远程资源增加区分平台
             string assetRemoteAddress = F8EditorPrefs.GetString(_assetRemoteAddressKey, "")  + "Remote/" + URLSetting.GetPlatformName();
             
             bool enableHotUpdate = F8EditorPrefs.GetBool(_enableHotUpdateKey, false);

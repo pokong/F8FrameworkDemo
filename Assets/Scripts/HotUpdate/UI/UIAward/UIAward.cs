@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using F8Framework.Core;
 using HotUpdate;
 
-
 public class UIAward : BaseView
 {
     // Awake
@@ -14,26 +13,31 @@ public class UIAward : BaseView
         Button_Mask_Button.onClick.AddListener(() =>
         {
             this.Close();
-            FF8.UI.Open(DemoLauncher.UIID.UITip, new object[] { "已领取奖励" });
+            FF8.UI.Open(DemoInitState.UIID.UITip, new object[] { "已领取奖励" });
         });
         Button_Close_Button.onClick.AddListener(() =>
         {
             this.Close();
-            FF8.UI.Open(DemoLauncher.UIID.UITip, new object[] { "已领取奖励" });
+            FF8.UI.Open(DemoInitState.UIID.UITip, new object[] { "已领取奖励" });
         });
         Button_Get_Button.onClick.AddListener(() =>
         {
             this.Close();
-            FF8.UI.Open(DemoLauncher.UIID.UITip, new object[] { "已领取奖励" });
+            FF8.UI.Open(DemoInitState.UIID.UITip, new object[] { "已领取奖励" });
         });
     }
     
     // 参数传入
     protected override void OnAdded(int uiId, object[] args = null)
     {
-        
+        FF8.Input.AddButtonPerformed(InputButtonType.EscClick, Performed);
     }
-    
+
+    private void Performed(string obj)
+    {
+        this.Close();
+    }
+
     // Start
     protected override void OnStart()
     {
@@ -60,7 +64,7 @@ public class UIAward : BaseView
     // 删除之前
     protected override void OnBeforeRemove()
     {
-        
+        FF8.Input.RemoveButtonPerformed(InputButtonType.EscClick, Performed);
     }
     
     // 删除

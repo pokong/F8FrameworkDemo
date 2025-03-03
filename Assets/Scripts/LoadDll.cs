@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class LoadDll : MonoBehaviour
 {
-    private HotUpdateManager HotUpdate;
+    private HotUpdateManager HotUpdateManager;
     private DownloadManager DownloadManager;
     private AssetManager AssetManager;
 
@@ -22,24 +22,24 @@ public class LoadDll : MonoBehaviour
     {
         ModuleCenter.Initialize(this);
         // 在这里可以启动热更新
-        HotUpdate = ModuleCenter.CreateModule<HotUpdateManager>();
+        HotUpdateManager = ModuleCenter.CreateModule<HotUpdateManager>();
         DownloadManager = ModuleCenter.CreateModule<DownloadManager>();
         AssetManager = ModuleCenter.CreateModule<AssetManager>();
 
         // 初始化本地版本
-        HotUpdate.InitLocalVersion();
+        HotUpdateManager.InitLocalVersion();
 
         // 初始化远程版本
-        yield return HotUpdate.InitRemoteVersion();
+        yield return HotUpdateManager.InitRemoteVersion();
 
         // 初始化资源版本
-        yield return HotUpdate.InitAssetVersion();
+        yield return HotUpdateManager.InitAssetVersion();
         
         // 检查未加载的分包
-        List<string> subPackage = HotUpdate.CheckPackageUpdate(GameConfig.LocalGameVersion.SubPackage);
+        List<string> subPackage = HotUpdateManager.CheckPackageUpdate(GameConfig.LocalGameVersion.SubPackage);
 
         // 分包加载
-        HotUpdate.StartPackageUpdate(subPackage, () =>
+        HotUpdateManager.StartPackageUpdate(subPackage, () =>
             {
                 LogF8.Log("分包完成");
                 startHotUpdate();
@@ -58,13 +58,13 @@ public class LoadDll : MonoBehaviour
     public void startHotUpdate()
     {
         // 检查需要热更的资源，总大小
-        Tuple<Dictionary<string, string>, long> result = HotUpdate.CheckHotUpdate();
+        Tuple<Dictionary<string, string>, long> result = HotUpdateManager.CheckHotUpdate();
         var hotUpdateAssetUrl = result.Item1;
         var allSize = result.Item2;
         LogF8.Log("热更总大小：" + allSize.ToString());
 
         // 资源热更新
-        HotUpdate.StartHotUpdate(hotUpdateAssetUrl, () =>
+        HotUpdateManager.StartHotUpdate(hotUpdateAssetUrl, () =>
         {
             LogF8.Log("完成");
             
@@ -86,7 +86,6 @@ public class LoadDll : MonoBehaviour
                 .First(a => a.GetName().Name == "HotUpdate");
 #endif
             Type type = hotUpdateAss2.GetType("HotUpdate.GameLauncher");
-            // Type type = hotUpdateAss2.GetType("F8Framework.Launcher.DemoLauncher");
             
             // 添加组件
             gameObject.AddComponent(type);
