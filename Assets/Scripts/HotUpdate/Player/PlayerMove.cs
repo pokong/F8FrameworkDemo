@@ -16,7 +16,10 @@ namespace Demo
     
       public override void OnStateEnter(IFSM<PlayerMove> fsm)
       {
-         animator.Play("Player_attack");
+         if (animator)
+         {
+            animator.Play("Player_attack");
+         }
       }
     
       public override void OnStateUpdate(IFSM<PlayerMove> fsm)
@@ -43,7 +46,10 @@ namespace Demo
     
       public override void OnStateEnter(IFSM<PlayerMove> fsm)
       {
-         animator.Play("Player_move");
+         if (animator)
+         {
+            animator.Play("Player_move");
+         }
       }
     
       public override void OnStateUpdate(IFSM<PlayerMove> fsm)
@@ -100,13 +106,15 @@ namespace Demo
          playerFSM.DefaultState = moveState;
          playerFSM.ChangeToDefaultState();
 
-         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
-         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
-         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
-         // FF8.UI.Open(DemoLauncher.UIID.UIAward);
+         // FF8.UI.Open(DemoInitState.UIID.UIAward);
+         // FF8.UI.Open(DemoInitState.UIID.UIAward);
+         // FF8.UI.Open(DemoInitState.UIID.UIAward);
          FF8.UI.Open(DemoLauncher.UIID.UIAward);
+         FF8.UI.Open(UIConfigData.UIID.UIAward);
          
-         ChangImage();
+         // FF8.Input.SwitchDevice(new XboxInputDevice());
+		 
+		 ChangImage();
       }
 
       private void Update()

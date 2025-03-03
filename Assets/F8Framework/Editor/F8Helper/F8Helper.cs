@@ -45,6 +45,20 @@ namespace F8Framework.Core.Editor
         [MenuItem("开发工具/生成并复制热更新Dll-F8")]
         public static void GenerateCopyHotUpdateDll()
         {
+            // F8EditorPrefs.SetBool("compilationFinishedHotUpdateDll", false);
+            // HybridCLR.Editor.Commands.PrebuildCommand.GenerateAll();
+            // FileTools.SafeClearDir(Application.dataPath + "/AssetBundles/Code");
+            // FileTools.CheckDirAndCreateWhenNeeded(Application.dataPath + "/AssetBundles/Code");
+            // foreach (var dll in HybridCLR.Editor.SettingsUtil.HotUpdateAssemblyNamesExcludePreserved) // 获取HybridCLR设置面板的dll名称
+            // {
+            //     FileTools.SafeCopyFile(
+            //         HybridCLR.Editor.SettingsUtil.GetHotUpdateDllsOutputDirByTarget(EditorUserBuildSettings.activeBuildTarget) + "/" + dll + ".dll",
+            //         Application.dataPath + "/AssetBundles/Code/" + dll + ".bytes");
+            //     LogF8.LogAsset("生成并复制热更新dll：" + dll);
+            // }
+            // AssetDatabase.Refresh();
+            
+            //OPEN
             F8EditorPrefs.SetBool("compilationFinishedHotUpdateDll", false);
             HybridCLR.Editor.Commands.PrebuildCommand.GenerateAll();
 
@@ -113,7 +127,8 @@ namespace F8Framework.Core.Editor
         [MenuItem("开发工具/打包AssetBundles目录资源-F8")]
         public static void BuildAssetBundles()
         {
-            GenerateCopyHotUpdateDll();
+            // GenerateCopyHotUpdateDll();
+            F8EditorPrefs.SetBool("compilationFinishedHotUpdateDll", false);
             F8EditorPrefs.SetBool("compilationFinishedBuildAB", false);
             ABBuildTool.BuildAllAB();
         }
