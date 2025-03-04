@@ -1,0 +1,44 @@
+syntax = "proto3";
+option java_package = "com.leenzee.game.data.pb";
+option java_multiple_files = true;
+package Cmd;
+
+
+enum Module {
+  //////////占位//////////
+  Default_Module = 0;
+  ///////////////////////
+
+  Account = 1;
+
+  Role = 2;
+
+  Push = 3;
+
+}
+
+enum AccountModule {
+  //////////占位//////////
+  Default_Account = 0;
+  ///////////////////////
+
+  Login = 1;
+}
+
+enum RoleModule {
+  //////////占位//////////
+  Default_Role = 0;
+  ///////////////////////
+
+  Create_Role = 1;
+
+  Get_Role = 2;
+}
+
+
+enum PushModule {
+  //////////占位//////////
+  Default_Push = 0;
+  ///////////////////////
+
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+option java_package = "com.leenzee.game.data.pb";
+option java_multiple_files = true;
+package Player;
+
+
+// 角色简要信息
+message RoleSimpleInfo {
+
+  // 角色id
+  int64 roleId = 1;
+
+  // 昵称
+  string nickname = 2;
+
+  // 进度
+  int32 progress = 3;
+
+}
+

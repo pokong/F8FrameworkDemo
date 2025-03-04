@@ -1,0 +1,30 @@
+syntax = "proto3";
+option java_package = "com.leenzee.game.data.pb";
+option java_multiple_files = true;
+package Player;
+
+
+message GlobalMessage {
+
+  // 0 心跳，1 业务
+  int32 cmdCode = 1;
+
+  // 默认0 不加密 ， 1加密
+  int32 protocolSwitch = 2;
+
+  // 协议编号（高16为主, 低16为子）
+  int32 protoId = 3;
+
+  // 响应码。 0 成功  !0 错误
+  sint32 responseStatus = 4;
+
+  // 错误信息，响应码错误时对应的错误信息
+  string validMsg = 5;
+
+  // 业务数据
+  bytes data = 6;
+
+  // 请求的消息id，通过自增或者随机数生成。 没有强制唯一，但最好唯一，方便区分消息
+  int32 msgId = 7;
+
+}
