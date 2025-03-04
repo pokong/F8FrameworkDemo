@@ -82,7 +82,6 @@ namespace F8Framework.Core
             RegisterVirtualButton(InputButtonType.MouseRight);
             RegisterVirtualButton(InputButtonType.MouseMiddle);
             RegisterVirtualButton(InputButtonType.MouseLeftDoubleClick);
-            RegisterVirtualButton(InputButtonType.EscClick);
 
             RegisterVirtualAxis(InputAxisType.MouseX);
             RegisterVirtualAxis(InputAxisType.MouseY);
@@ -95,17 +94,6 @@ namespace F8Framework.Core
         public override void OnRun()
         {
             //标准PC平台：鼠标和键盘做为输入设备
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                SetButtonStart(InputButtonType.EscClick);
-                SetButtonDown(InputButtonType.EscClick);
-            }
-
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                SetButtonUp(InputButtonType.EscClick);
-            }
-            
             if (Input.GetMouseButtonDown(0))
             {
                 SetButtonStart(InputButtonType.MouseLeft);
@@ -190,7 +178,6 @@ namespace F8Framework.Core
             UnRegisterVirtualButton(InputButtonType.MouseRight);
             UnRegisterVirtualButton(InputButtonType.MouseMiddle);
             UnRegisterVirtualButton(InputButtonType.MouseLeftDoubleClick);
-            UnRegisterVirtualButton(InputButtonType.EscClick);
 
             UnRegisterVirtualAxis(InputAxisType.MouseX);
             UnRegisterVirtualAxis(InputAxisType.MouseY);

@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -17,6 +15,7 @@ namespace F8Framework.Core
         
         private AssetBundleManifest manifest;
         private Dictionary<string, AssetBundleLoader> assetBundleLoaders = new Dictionary<string, AssetBundleLoader>();
+        private List<AssetBundleLoader> assetBundleLoadersList = new List<AssetBundleLoader>();
 
         /// <summary>
         /// 通过资产捆绑路径同步加载。
@@ -982,18 +981,15 @@ namespace F8Framework.Core
         
         public void OnUpdate()
         {
-            try
+            assetBundleLoadersList.Clear();
+            foreach (AssetBundleLoader abl in assetBundleLoaders.Values)
             {
-                String[] keyArr = assetBundleLoaders.Keys.ToArray();
-                for (int i = 0; i < keyArr.Length; i++)
-                {
-                    assetBundleLoaders[keyArr[i]].OnUpdate();
-                }
+                if (abl != null)
+                    assetBundleLoadersList.Add(abl);
             }
-            catch (Exception e)
+            for (int i = 0; i < assetBundleLoadersList.Count; i++)
             {
-                Console.WriteLine(e);
-                throw;
+                assetBundleLoadersList[i].OnUpdate();
             }
         }
 
