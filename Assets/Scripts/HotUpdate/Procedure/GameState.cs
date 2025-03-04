@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using F8Framework.Core;
 using HotUpdate;
-using Unity.Plastic.Newtonsoft.Json.Serialization;
+// using Unity.Plastic.Newtonsoft.Json.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -23,7 +23,7 @@ namespace F8Framework.Core.Editor
         {
             AssetDatabase.RemoveUnusedAssetBundleNames();
             
-            // 获取“StreamingAssets”文件夹路径（不一定这个文件夹，可自定义）            
+            // 获取“StreamingAssets”文件夹路径（不一定这个文件夹，可自定义）
             string strABOutPAthDir = URLSetting.GetAssetBundlesOutPath();
             
             GenerateAssetNames();
@@ -45,11 +45,17 @@ namespace F8Framework.Core.Editor
             // 清理多余文件夹和ab
             DeleteRemovedAssetBundles();
             
+            //复制AB到steam打包目录
+            string outpath = URLSetting.GetAssetBundlesStreamPath();
+            FileTools.SafeClearDir(outpath);
+            FileTools.CheckDirAndCreateWhenNeeded(outpath);
+            FileTools.SafeCopyDirectory(strABOutPAthDir, outpath, true);
+            
             // 等待AB打包完成，再写入数据
             GenerateAssetNames(true);
             GenerateResourceNames(true);
             LogF8.LogAsset("写入资产数据 生成：AssetBundleMap.json，生成：ResourceMap.json");
-            
+
             AssetDatabase.Refresh();
 
             LogF8.LogAsset("资产打包成功!");
