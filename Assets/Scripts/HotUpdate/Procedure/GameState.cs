@@ -38,7 +38,7 @@ public class GameState : ProcedureNode
     {
         if (isloadScenes && loadSceneAsync != null)
         {
-            Debug.Log("loadSceneAsync progress=" + loadSceneAsync.progress);
+            // Debug.Log("loadSceneAsync progress=" + loadSceneAsync.progress);
             if (loadSceneAsync.isDone)
             {
                 isloadScenes = false;

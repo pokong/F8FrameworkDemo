@@ -34,15 +34,22 @@ namespace F8Framework.Core.Editor
             F8EditorPrefs.SetBool("IsEditorMode", !isEditorMode);
         }
         
-        [MenuItem("开发工具/F8Run _F8")]
-        public static void F8Run()
+        
+        [MenuItem("开发工具/清除AssetBundleNames")]
+        public static void ClearAssetBundlesName()
         {
-            F8EditorPrefs.SetBool("compilationFinishedHotUpdateDll", true);
-            F8EditorPrefs.SetBool("compilationFinishedBuildAB", true);
-            LoadAllExcelData();
+            ABBuildTool.ClearAllAssetNames();
         }
         
-        [MenuItem("开发工具/生成并复制热更新Dll-F8")]
+        [MenuItem("开发工具/1: F8Run _F8",false,200)]
+        public static void F8Run()
+        {
+            LoadAllExcelData();
+            F8EditorPrefs.SetBool("compilationFinishedHotUpdateDll", true);
+            F8EditorPrefs.SetBool("compilationFinishedBuildAB", true);
+        }
+        
+        [MenuItem("开发工具/3: 生成并复制热更新Dll-F8",false,210)]
         public static void GenerateCopyHotUpdateDll()
         {
             // F8EditorPrefs.SetBool("compilationFinishedHotUpdateDll", false);
@@ -118,13 +125,13 @@ namespace F8Framework.Core.Editor
             AssetDatabase.Refresh();
         }
         
-        [MenuItem("开发工具/Excel导表-F8")]
+        [MenuItem("开发工具/2: Excel导表-F8",false,205)]
         public static void LoadAllExcelData()
         {
             ExcelDataTool.LoadAllExcelData();
         }
         
-        [MenuItem("开发工具/打包AssetBundles目录资源-F8")]
+        [MenuItem("开发工具/4: 打包AssetBundles目录资源-F8",false,215)]
         public static void BuildAssetBundles()
         {
             // GenerateCopyHotUpdateDll();

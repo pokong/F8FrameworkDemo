@@ -24,7 +24,8 @@ public class UIVideoPlayEnd : BaseView
         });
         Button4_Button.onClick.AddListener(()=>
         {
-            ButtonClickedEvent(4);
+            // ButtonClickedEvent(4);
+            Application.Quit();
         });
     }
 
