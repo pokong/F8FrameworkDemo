@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -980,9 +982,18 @@ namespace F8Framework.Core
         
         public void OnUpdate()
         {
-            foreach (AssetBundleLoader loader in assetBundleLoaders.Values)
+            try
             {
-                loader.OnUpdate();
+                String[] keyArr = assetBundleLoaders.Keys.ToArray();
+                for (int i = 0; i < keyArr.Length; i++)
+                {
+                    assetBundleLoaders[keyArr[i]].OnUpdate();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
             }
         }
 

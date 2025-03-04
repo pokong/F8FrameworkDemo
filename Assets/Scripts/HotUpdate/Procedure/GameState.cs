@@ -27,6 +27,7 @@ public class GameState : ProcedureNode
         isloadScenes = true;
         loadSceneAsync = SceneManager.LoadSceneAsync("MainScenes", LoadSceneMode.Single);
         // SceneManager.LoadScene("MainScenes", LoadSceneMode.Single);
+        FF8.UI.OpenAsync(InitState.UIID.UIVideoPlay, new object[] { 1 });
     }
 
 
@@ -42,7 +43,7 @@ public class GameState : ProcedureNode
             if (loadSceneAsync.isDone)
             {
                 isloadScenes = false;
-                FF8.UI.Open(InitState.UIID.UIVideoPlay, new object[] { 1 });
+                // FF8.UI.OpenAsync(InitState.UIID.UIVideoPlay, new object[] { 1 });
             }
         }
     }
