@@ -180,10 +180,13 @@ namespace F8Framework.Core
         /// 鼠标中键
         /// </summary>
         public static string MouseMiddle = "MouseMiddle";
+        
         /// <summary>
         /// 鼠标左键双击
         /// </summary>
         public static string MouseLeftDoubleClick = "MouseLeftDoubleClick";
+        // Esc
+        public static string EscClick = "EscClick";
     }
 
     /// <summary>
